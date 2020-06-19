@@ -24,7 +24,7 @@ namespace PortalConfirmation
         }
         public override unsafe void OnApplicationStart()
         {
-            var getoriginal = (IntPtr)typeof(PortalInternal).GetField("NativeMethodInfoPtr_Method_Public_Void_0", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
+            var getoriginal = (IntPtr)typeof(PortalInternal).GetField("NativeMethodInfoPtr_Method_Public_Void_4", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
 
             var original = *(IntPtr*)getoriginal;
             HookMethod((IntPtr)(&original), Marshal.GetFunctionPointerForDelegate(new Action<IntPtr>(EnterConfirm)));
@@ -38,7 +38,7 @@ namespace PortalConfirmation
                 var portal = new PortalInternal(instance);
                 var dropper = PlayerManager.Method_Public_Static_Player_Int32_0(portal.field_Internal_Int32_0);
                 VRCUiPopupManager.field_Private_Static_VRCUiPopupManager_0.
-                    Method_Public_Void_String_String_String_Action_Action_1_VRCUiPopup_0("Portal Confirmation", "Would you like to enter this world? \n" +
+                    Method_Public_Void_String_String_String_Action_Action_1_VRCUiPopup_4("Portal Confirmation", "Would you like to enter this world? \n" +
                     $"Name: {portal.field_Private_ApiWorld_0.name}\n" +
                     $"Author: {portal.field_Private_ApiWorld_0.authorName}\n" +
                     $"Player: {(dropper != null ? dropper.field_Private_APIUser_0.displayName : "No Player")}", "Yes", new Action(() => {
